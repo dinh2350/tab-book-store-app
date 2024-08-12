@@ -1,0 +1,40 @@
+.cart {
+  .cart__container {
+    .cart__title {
+    }
+    .cart__content {
+      .cart__header {
+        margin-bottom: 25px;
+      }
+      .cart__products {
+        .cart__product {
+          margin: 15px 0px;
+        }
+      }
+    }
+    .cart__total-amount {
+      mat-card {
+        padding: 20px;
+        .cart__total-amount__title {
+          p {
+            font-size: 30px;
+            font-weight: bold;
+          }
+        }
+        .cart__total-amount-price {
+          margin: 20px 0px;
+          span {
+            color: red;
+            font-size: 25px;
+            font-weight: 600;
+          }
+        }
+        .cart__total-amount__btn-pay {
+          width: 200px;
+          color: white;
+          background-color: red;
+        }
+      }
+    }
+  }
+}
