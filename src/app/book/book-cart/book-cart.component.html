@@ -1,0 +1,20 @@
+<mat-card class="book-cart">
+  <img
+    class="book-cart__image"
+    mat-card-image
+    [src]="book?.image"
+    alt="image for book"
+  />
+  <mat-card-header>
+    <mat-card-title>{{ book?.title }}</mat-card-title>
+    <mat-card-subtitle>{{ book?.category }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ book?.price }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-raised-button color="primary" [routerLink]="[book?.id]">View</a>
+  </mat-card-actions>
+</mat-card>

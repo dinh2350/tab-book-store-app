@@ -1,0 +1,13 @@
+<div class="quantity">
+  <button mat-mini-fab color="primary" (click)="decrement()">
+    <mat-icon>remove</mat-icon>
+  </button>
+
+  <mat-form-field appearance="outline" class="quantity__input">
+    <input matInput [(ngModel)]="quantity" />
+  </mat-form-field>
+
+  <button mat-mini-fab color="primary" (click)="increment()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

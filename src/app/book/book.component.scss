@@ -1,0 +1,16 @@
+.books {
+  .books__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 24px 16px;
+    @media screen and (max-width: 1280px) {
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    }
+    @media screen and (max-width: 1024px) {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .books__item {
+      width: 100%;
+    }
+  }
+}

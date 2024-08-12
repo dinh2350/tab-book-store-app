@@ -1,0 +1,15 @@
+.book-cart {
+  width: 100%;
+  .book-cart__image {
+    height: 400px;
+    object-fit: cover;
+  }
+  .book-cart__description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 4.5em;
+  }
+}

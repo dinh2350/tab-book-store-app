@@ -1,0 +1,12 @@
+.quantity {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  .quantity__input {
+    width: 50px;
+    margin: 0 10px;
+    .mat-mdc-form-field-bottom-align {
+      display: none;
+    }
+  }
+}
