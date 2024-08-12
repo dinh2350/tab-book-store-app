@@ -21,7 +21,7 @@
         .quantity-selector {
           display: flex;
           align-items: flex-start;
-          justify-content: start;
+          justify-content: flex-start;
         }
 
         mat-form-field {
@@ -74,7 +74,7 @@
           margin-left: 20px;
           .view-book__policy-item {
             display: flex;
-            justify-content: start;
+            justify-content: flex-start;
             align-items: center;
             gap: 12px;
             p {

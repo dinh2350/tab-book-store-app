@@ -7,16 +7,13 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
-import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
-    MatSlideToggleModule,
-    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

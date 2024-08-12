@@ -11,9 +11,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 import { BookComponent } from './book.component';
-import { AddBookComponent } from '../pages/book/add-book/add-book.component';
-import { ViewBookComponent } from '../pages/book/view-book/view-book.component';
-import { BookCartComponent } from './book-cart/book-cart.component';
+import { AddBookComponent } from './add-book/add-book.component';
+import { ViewBookComponent } from './view-book/view-book.component';
+import { BookCartComponent } from '../../components/book-cart/book-cart.component';
 
 export const routes: Routes = [
   {

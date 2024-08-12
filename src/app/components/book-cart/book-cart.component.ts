@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IBook } from '../book.model';
+import { IBook } from '../../pages/book/book.model';
 
 @Component({
   selector: 'app-book-cart',

@@ -6,8 +6,8 @@ import { MatCardModule } from '@angular/material/card';
 
 import { CartComponent } from './cart.component';
 import { cartRoutes } from './cart.routes';
-import { ShareModule } from 'src/share/share.module';
-import { CartItemComponent } from './cart-item/cart-item.component';
+import { ShareModule } from 'src/app/components/share/share.module';
+import { CartItemComponent } from '../../components/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [CartComponent, CartItemComponent],
