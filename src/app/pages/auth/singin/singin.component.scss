@@ -1,5 +1,21 @@
-.sign-in-card {
+.sign-in {
     max-width: 400px;
-    margin: 100px auto;
-    padding: 20px;
-  }
+    padding: 50px;
+    .sign-in__header{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .sign-in__content {
+      form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .sign-in__btn{
+          margin-top: 5px;
+        }
+      }
+    }
+}
