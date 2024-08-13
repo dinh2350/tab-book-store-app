@@ -1,0 +1,13 @@
+mat-dialog-content {
+  max-height: 90vh;
+  .book-form {
+    .book-form__title {
+      font-size: 28px;
+      font-weight: 500;
+      color: black;
+    }
+    mat-form-field {
+      width: 100%;
+    }
+  }
+}

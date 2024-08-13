@@ -1,0 +1,22 @@
+mat-card {
+    margin-bottom: 16px;
+  }
+  
+  table {
+    width: 100%;
+
+    .book-image{
+      width: 75px;
+      height: 100px;
+      object-fit: fill;
+    }
+  }
+  
+  .mat-column-actions {
+    width: 150px;
+  }
+  
+  mat-paginator {
+    margin-top: 16px;
+  }
+  

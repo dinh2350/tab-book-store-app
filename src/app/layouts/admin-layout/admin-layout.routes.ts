@@ -4,6 +4,9 @@ import { AdminBookComponent } from 'src/app/pages/admin-book/admin-book.componen
 export const adminLayoutRoutes: Routes = [
   {
     path: 'book',
-    component: AdminBookComponent,
+    loadChildren: () =>
+      import('src/app/pages/admin-book/admin-book.module').then(
+        (m) => m.AdminBookModule
+      ),
   },
 ];
