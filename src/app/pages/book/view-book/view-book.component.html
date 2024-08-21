@@ -1,0 +1,92 @@
+<div class="view-book">
+  <div class="view-book__container">
+    <div class="view-book__media">
+      <div class="view-book__image">
+        <img
+          src="https://cdn0.fahasa.com/media/catalog/product/9/7/9781009470360.jpg"
+          alt=""
+        />
+      </div>
+      <div class="view-book__quantity-box">
+        <div class="quantity-selector">
+          <button mat-fab color="primary" (click)="decrement()">
+            <mat-icon>remove</mat-icon>
+          </button>
+
+          <mat-form-field appearance="outline">
+            <input matInput [(ngModel)]="quantity" />
+          </mat-form-field>
+
+          <button mat-fab color="primary" (click)="increment()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="view-book__actions">
+        <div class="view-book__action-item">
+          <button mat-fab extended class="view-book__btn-add-to-cart">
+            <mat-icon>shopping_cart</mat-icon>
+            Thêm vào giỏ hàng
+          </button>
+        </div>
+        <div class="view-book__action-item">
+          <button mat-stroked-button class="view-book__btn-buy">
+            Mua ngay
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="view-book__info">
+      <div class="view-book__title">
+        <h1>
+          Mindset For IELTS Level 2 Student’s Book With Updated Digital Pack
+        </h1>
+      </div>
+      <div class="view-book__info-detail">
+        <mat-list>
+          <mat-list-item>
+            <span matListItemTitle>Category: </span>
+            <span matListItemLine>Dramma</span>
+          </mat-list-item>
+          <mat-list-item>
+            <span matListItemTitle>Price: </span>
+            <span matListItemLine>20$</span>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <div class="view-book__description">
+        <p class="view-book__description-title">Mô tả sản phẩm</p>
+        <p class="view-book__description">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora,
+          fugit sunt nostrum sed eius sequi ex. Rerum, earum quasi iure,
+          molestiae, nobis delectus in nostrum laborum error culpa aliquam et.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora,
+          fugit sunt nostrum sed eius sequi ex. Rerum, earum quasi iure,
+          molestiae, nobis delectus in nostrum laborum error culpa aliquam et.
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora,
+          fugit sunt nostrum sed eius sequi ex. Rerum, earum quasi iure,
+          molestiae, nobis delectus in nostrum laborum error culpa aliquam et.
+        </p>
+      </div>
+      <div class="view-book__policy">
+        <div class="view-book__policy-title">
+          <p>Chính Sách Của Hảng</p>
+        </div>
+        <div class="view-book__policy-list">
+          <div class="view-book__policy-item">
+            <mat-icon fontIcon="local_shipping"></mat-icon>
+            <p>- Thời gian giao hàng : Giao nhanh và uy tín</p>
+          </div>
+          <div class="view-book__policy-item">
+            <mat-icon fontIcon="assignment_return"></mat-icon>
+            <p>- Thời gian giao hàng : Giao nhanh và uy tín</p>
+          </div>
+          <div class="view-book__policy-item">
+            <mat-icon fontIcon="shopping_basket"></mat-icon>
+            <p>- Thời gian giao hàng : Giao nhanh và uy tín</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

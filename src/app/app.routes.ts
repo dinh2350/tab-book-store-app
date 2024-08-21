@@ -1,21 +1,46 @@
 import { Routes } from '@angular/router';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
 export const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/book',
-    pathMatch: 'full',
+    component: ClientLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./layouts/client-layout/client-layout.module').then(
+            (m) => m.ClientLayoutModule
+          ),
+      },
+    ],
   },
   {
-    path: 'book',
-    loadChildren: () => import('./book/book.module').then((m) => m.BookModule),
-  },
-  {
-    path: 'cart',
-    loadChildren: () => import('./cart/cart.module').then((m) => m.CartModule),
+    path: 'admin',
+    component: AdminLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./layouts/admin-layout/admin-layout.module').then(
+            (m) => m.AdminLayoutModule
+          ),
+      },
+    ],
   },
   {
     path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+    component: AuthLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./layouts/auth-layout/auth-layout.module').then(
+            (m) => m.AuthLayoutModule
+          ),
+      },
+    ],
   },
 ];

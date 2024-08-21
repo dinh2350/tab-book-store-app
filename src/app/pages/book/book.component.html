@@ -1,0 +1,7 @@
+<div class="books">
+  <div class="books__container">
+    <div *ngFor="let book of books; index as i" class="books__item">
+      <app-book-cart [book]="book"></app-book-cart>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<mat-card class="cart__product-item">
+  <mat-card-content class="cart__product-item-content">
+    <mat-checkbox
+      color="primary"
+      class="cart__product-item-checked"
+    ></mat-checkbox>
+    <img
+      class="cart__product-item-img"
+      mat-card-image
+      src="https://cdn0.fahasa.com/media/catalog/product//i/m/image_187163.jpg"
+      alt="Photo of a Shiba Inu"
+    />
+    <div class="cart__product-item-info">
+      <p class="mat-body-1">
+        This is body text styled with Angular Material typography.
+      </p>
+      <p class="cart__product-item-info-price">35$</p>
+    </div>
+
+    <div class="cart__product-item-quantity">
+      <app-quantity [(quantity)]="quantity"></app-quantity>
+    </div>
+    <div class="cart__product-item-price">
+      <span>50 $</span>
+    </div>
+    <div class="cart__product-item-action">
+      <button mat-icon-button class="cart__product-item-delete">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

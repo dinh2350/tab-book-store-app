@@ -1,0 +1,93 @@
+.view-book {
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    .view-book__media {
+      flex: 0 1 25%;
+      .view-book__image {
+        height: 450px;
+        width: 450px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: fill;
+        }
+      }
+      .view-book__quantity-box {
+        display: flex;
+        justify-content: center;
+        .quantity-selector {
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+        }
+
+        mat-form-field {
+          width: 50px;
+          margin: 0 10px;
+        }
+      }
+      .view-book__actions {
+        margin: 10px 0px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .view-book__action-item {
+          width: 48%;
+          .view-book__btn-buy {
+            height: 48px;
+            width: 100%;
+            color: red;
+            border-color: red;
+            &:hover {
+              background-color: rgba(255, 0, 0, 0.04);
+            }
+          }
+          .view-book__btn-add-to-cart {
+            height: 48px;
+            width: 100%;
+            background-color: red;
+            color: white; /* To ensure the icon and text are visible */
+            &:hover {
+              background-color: darkred;
+            }
+          }
+        }
+      }
+    }
+    .view-book__info {
+      flex: 0 1 70%;
+      .view-book__description-title {
+        font-weight: 500;
+      }
+      .view-book__policy {
+        .view-book__policy-title {
+          p {
+            margin-bottom: 14px;
+            font-size: 16px;
+            font-weight: 500;
+          }
+        }
+        .view-book__policy-list {
+          margin-left: 20px;
+          .view-book__policy-item {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 12px;
+            p {
+              font-size: 14px;
+              font-weight: 400;
+              margin-bottom: 0px;
+            }
+          }
+        }
+      }
+      @media screen and (max-width: 1024px) {
+        flex: 1 1 90%;
+      }
+    }
+  }
+}

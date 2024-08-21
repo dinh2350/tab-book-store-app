@@ -1,0 +1,48 @@
+<div class="cart">
+  <div class="cart__container">
+    <div class="cart__title">
+      <h1>Giỏ Hàng</h1>
+    </div>
+    <div class="cart__content">
+      <div class="cart__header">
+        <mat-card>
+          <mat-card-content>
+            <mat-checkbox color="primary"></mat-checkbox>
+            <span class="cart__header-text"> Select All Product </span>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="cart__products">
+        <div class="cart__product">
+          <app-cart-item></app-cart-item>
+        </div>
+        <div class="cart__product">
+          <app-cart-item></app-cart-item>
+        </div>
+        <div class="cart__product">
+          <app-cart-item></app-cart-item>
+        </div>
+        <div class="cart__product">
+          <app-cart-item></app-cart-item>
+        </div>
+      </div>
+    </div>
+    <div class="cart__total-amount">
+      <mat-card>
+        <mat-card-title class="cart__total-amount__title">
+          <p>Thành tiền</p>
+        </mat-card-title>
+        <mat-card-content class="cart__total-amount__body">
+          <div class="cart__total-amount-price">
+            <span>524.700 đ</span>
+          </div>
+          <div>
+            <button mat-raised-button class="cart__total-amount__btn-pay">
+              Payment
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
