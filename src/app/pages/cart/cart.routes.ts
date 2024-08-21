@@ -3,7 +3,7 @@ import { CartComponent } from './cart.component';
 
 export const cartRoutes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: CartComponent,
   },
 ];

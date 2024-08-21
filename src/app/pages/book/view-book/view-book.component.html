@@ -2,10 +2,7 @@
   <div class="view-book__container">
     <div class="view-book__media">
       <div class="view-book__image">
-        <img
-          src="https://cdn0.fahasa.com/media/catalog/product/9/7/9781009470360.jpg"
-          alt=""
-        />
+        <img [src]="book?.image" alt="book images" />
       </div>
       <div class="view-book__quantity-box">
         <div class="quantity-selector">
@@ -39,33 +36,25 @@
     <div class="view-book__info">
       <div class="view-book__title">
         <h1>
-          Mindset For IELTS Level 2 Student’s Book With Updated Digital Pack
+          {{ book?.title }}
         </h1>
       </div>
       <div class="view-book__info-detail">
         <mat-list>
           <mat-list-item>
             <span matListItemTitle>Category: </span>
-            <span matListItemLine>Dramma</span>
+            <span matListItemLine>{{ book?.category }}</span>
           </mat-list-item>
           <mat-list-item>
             <span matListItemTitle>Price: </span>
-            <span matListItemLine>20$</span>
+            <span matListItemLine>{{ book?.price }}$</span>
           </mat-list-item>
         </mat-list>
       </div>
       <div class="view-book__description">
         <p class="view-book__description-title">Mô tả sản phẩm</p>
         <p class="view-book__description">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-          fugit sunt nostrum sed eius sequi ex. Rerum, earum quasi iure,
-          molestiae, nobis delectus in nostrum laborum error culpa aliquam et.
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-          fugit sunt nostrum sed eius sequi ex. Rerum, earum quasi iure,
-          molestiae, nobis delectus in nostrum laborum error culpa aliquam et.
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-          fugit sunt nostrum sed eius sequi ex. Rerum, earum quasi iure,
-          molestiae, nobis delectus in nostrum laborum error culpa aliquam et.
+          {{ book?.description }}
         </p>
       </div>
       <div class="view-book__policy">
@@ -79,7 +68,7 @@
           </div>
           <div class="view-book__policy-item">
             <mat-icon fontIcon="assignment_return"></mat-icon>
-            <p>- Thời gian giao hàng : Giao nhanh và uy tín</p>
+            <p>- Thời gian giao hàng : Giao nhanh đúng hạng</p>
           </div>
           <div class="view-book__policy-item">
             <mat-icon fontIcon="shopping_basket"></mat-icon>

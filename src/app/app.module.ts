@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
+import { HttpClientConfigModule } from './configs/http-client-config-module/http-client-config-module.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +12,7 @@ import { appRoutes } from './app.routes';
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
+    HttpClientConfigModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

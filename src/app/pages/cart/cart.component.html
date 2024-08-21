@@ -13,16 +13,10 @@
         </mat-card>
       </div>
       <div class="cart__products">
-        <div class="cart__product">
-          <app-cart-item></app-cart-item>
-        </div>
-        <div class="cart__product">
-          <app-cart-item></app-cart-item>
-        </div>
-        <div class="cart__product">
-          <app-cart-item></app-cart-item>
-        </div>
-        <div class="cart__product">
+        <div
+          *ngFor="let cartItem of cartItems; index as i"
+          class="cart__product"
+        >
           <app-cart-item></app-cart-item>
         </div>
       </div>
