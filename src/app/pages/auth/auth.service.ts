@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClientService } from 'src/app/configs/http-client-config-module/http-client.service';
 
-import { IReqSignIn, IReqSignUp, IResSignIn } from './auth.model';
+import { IReqSignIn, IReqSignUp, IResSignIn, IResSignUp } from './auth.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,7 @@ export class AuthService {
     return this.httpClientService.post('auth/signin', body);
   }
 
-  signUp(body: IReqSignUp) {
+  signUp(body: IReqSignUp): Observable<IResSignUp> {
     return this.httpClientService.post('auth/signup', body);
   }
 }
