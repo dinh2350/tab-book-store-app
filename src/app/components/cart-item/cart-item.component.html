@@ -7,24 +7,31 @@
     <img
       class="cart__product-item-img"
       mat-card-image
-      src="https://cdn0.fahasa.com/media/catalog/product//i/m/image_187163.jpg"
+      [src]="cartItem.book.image"
       alt="Photo of a Shiba Inu"
     />
     <div class="cart__product-item-info">
       <p class="mat-body-1">
-        This is body text styled with Angular Material typography.
+        {{ cartItem.book.title }}
       </p>
-      <p class="cart__product-item-info-price">35$</p>
+      <p class="cart__product-item-info-price">{{ cartItem.book.price }}$</p>
     </div>
 
     <div class="cart__product-item-quantity">
-      <app-quantity [(quantity)]="quantity"></app-quantity>
+      <app-quantity
+        [(quantity)]="cartItem.quantity"
+        (quantityChange)="handleQuantityChange($event)"
+      ></app-quantity>
     </div>
     <div class="cart__product-item-price">
-      <span>50 $</span>
+      <span>{{ cartItem.quantity * cartItem.book.price }} $</span>
     </div>
     <div class="cart__product-item-action">
-      <button mat-icon-button class="cart__product-item-delete">
+      <button
+        mat-icon-button
+        class="cart__product-item-delete"
+        (click)="handleDeleteCartItem()"
+      >
         <mat-icon>delete</mat-icon>
       </button>
     </div>

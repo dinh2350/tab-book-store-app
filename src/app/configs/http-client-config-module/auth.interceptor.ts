@@ -24,6 +24,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   private getAuthToken(): string {
     // Retrieve the token logic (e.g., from a service or local storage)
-    return 'your-auth-token';
+    const token = localStorage.getItem('token') || '';
+    return token;
   }
 }

@@ -1,8 +1,8 @@
 import { Component, DestroyRef, OnInit } from '@angular/core';
 import { CartService } from './cart.service';
-import { map, Subscription } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
-import { ICart, ICartItem } from './cart.model';
+import { map } from 'rxjs';
+import { ICartItem } from './cart.model';
+import { OrderService } from './order.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,27 +12,21 @@ import { ICart, ICartItem } from './cart.model';
 export class CartComponent implements OnInit {
   constructor(
     private cartService: CartService,
-    private route: ActivatedRoute,
+    private orderService: OrderService,
     private destroyRef: DestroyRef
   ) {}
   isLoading: boolean = false;
   errorMessage: string = '';
-  cartItems?: ICartItem[];
+  cartItems!: ICartItem[];
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      const id = +params['id'];
-      const subscription = this.fetchCartById(id);
-      this.destroyRef.onDestroy(() => {
-        subscription.unsubscribe();
-      });
-    });
+    this.fetchCartByUser();
   }
 
-  fetchCartById(id: number): Subscription {
+  fetchCartByUser(): void {
     this.isLoading = true;
-    return this.cartService
-      .getCartById(id)
+    const subscription = this.cartService
+      .getCartDetail()
       .pipe(map((result) => result.cartItems))
       .subscribe({
         next: (cart) => {
@@ -45,6 +39,20 @@ export class CartComponent implements OnInit {
           this.isLoading = false;
         },
       });
+    this.destroyRef.onDestroy(() => {
+      subscription.unsubscribe();
+    });
+  }
+
+  totalAmount(): number {
+    return this.cartItems.reduce(
+      (total, cartItem) => (total += cartItem.quantity * cartItem.book.price),
+      0
+    );
+  }
+
+  handleCheckout(cartId: number) {
+    this.orderService.checkout(cartId);
   }
 
   quantity: number = 1;

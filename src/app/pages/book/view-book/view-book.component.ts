@@ -3,6 +3,7 @@ import { BookService } from '../book.service';
 import { Subscription } from 'rxjs';
 import { IBook } from '../book.model';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from '../../cart/cart.service';
 
 @Component({
   selector: 'app-view-book',
@@ -11,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ViewBookComponent implements OnInit {
   constructor(
+    private cartService: CartService,
     private bookService: BookService,
     private route: ActivatedRoute,
     private destroyRef: DestroyRef
@@ -46,7 +48,13 @@ export class ViewBookComponent implements OnInit {
     });
   }
 
+  handleAddBookToCart() {
+    if (this.book?.id && this.book?.quantity)
+      this.cartService.addItemToCart(this.book.id, this.quantity).subscribe();
+  }
+
   quantity: number = 1;
+
   increment() {
     this.quantity++;
   }
