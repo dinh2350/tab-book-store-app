@@ -1,4 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { IBook } from './../../book/book.model';
+import { BookService } from './../../book/book.service';
+import { Component, DestroyRef, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Book } from '../book.model';
@@ -15,7 +17,9 @@ export class BookFormDialogComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private bookService: AdminBookService,
+    private bookService: BookService,
+    private destroyRef: DestroyRef,
+    private adminBookService: AdminBookService,
     public dialogRef: MatDialogRef<BookFormDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { book: Book | null }
   ) {
@@ -43,12 +47,28 @@ export class BookFormDialogComponent implements OnInit {
     if (this.bookForm.valid) {
       if (this.selectedBook) {
         const updatedBook = { ...this.selectedBook, ...this.bookForm.value };
-        this.bookService.updateBook(updatedBook);
+        // this.adminBookService.updateBook(updatedBook);
+        this.updateBook(updatedBook.id, updatedBook);
       } else {
-        this.bookService.addBook(this.bookForm.value);
+        // this.adminBookService.addBook(this.bookForm.value);
+        this.createBook(this.bookForm.value);
       }
       this.dialogRef.close();
     }
+  }
+
+  createBook(book: IBook) {
+    const subscription = this.bookService.createBook(book).subscribe();
+    this.destroyRef.onDestroy(() => {
+      subscription.unsubscribe();
+    });
+  }
+
+  updateBook(id: number, book: IBook) {
+    const subscription = this.bookService.updateBook(id, book).subscribe();
+    this.destroyRef.onDestroy(() => {
+      subscription.unsubscribe();
+    });
   }
 
   onCancel(): void {
