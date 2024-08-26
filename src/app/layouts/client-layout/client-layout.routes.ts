@@ -1,11 +1,7 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from 'src/app/common/guards/auth.guard';
 
 export const clientLayoutRoutes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: '/book',
-  //   pathMatch: 'full',
-  // },
   {
     path: 'book',
     loadChildren: () =>
@@ -15,9 +11,6 @@ export const clientLayoutRoutes: Routes = [
     path: 'cart',
     loadChildren: () =>
       import('src/app/pages/cart/cart.module').then((m) => m.CartModule),
+    canActivate: [AuthGuard],
   },
-  // {
-  //   path: 'auth',
-  //   loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
-  // },
 ];

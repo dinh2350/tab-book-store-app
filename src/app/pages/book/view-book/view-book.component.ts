@@ -2,8 +2,9 @@ import { Component, DestroyRef, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
 import { Subscription } from 'rxjs';
 import { IBook } from '../book.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '../../cart/cart.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-view-book',
@@ -12,8 +13,10 @@ import { CartService } from '../../cart/cart.service';
 })
 export class ViewBookComponent implements OnInit {
   constructor(
+    private authService: AuthService,
     private cartService: CartService,
     private bookService: BookService,
+    private router: Router,
     private route: ActivatedRoute,
     private destroyRef: DestroyRef
   ) {}
@@ -49,8 +52,12 @@ export class ViewBookComponent implements OnInit {
   }
 
   handleAddBookToCart() {
-    if (this.book?.id && this.book?.quantity)
-      this.cartService.addItemToCart(this.book.id, this.quantity).subscribe();
+    if (this.authService.isAuthenticated()) {
+      if (this.book?.id && this.book?.quantity)
+        this.cartService.addItemToCart(this.book.id, this.quantity).subscribe();
+    } else {
+      this.router.navigate(['/auth/sign-in']);
+    }
   }
 
   quantity: number = 1;
