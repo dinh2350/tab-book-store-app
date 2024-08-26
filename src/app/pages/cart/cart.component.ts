@@ -1,6 +1,5 @@
 import { Component, DestroyRef, OnInit } from '@angular/core';
 import { CartService } from './cart.service';
-import { map } from 'rxjs';
 import { ICartItem } from './cart.model';
 import { OrderService } from './order.service';
 
@@ -15,9 +14,11 @@ export class CartComponent implements OnInit {
     private orderService: OrderService,
     private destroyRef: DestroyRef
   ) {}
+  quantity: number = 1;
   isLoading: boolean = false;
   errorMessage: string = '';
   cartItems!: ICartItem[];
+  cartId!: number;
 
   ngOnInit(): void {
     this.fetchCartByUser();
@@ -25,20 +26,18 @@ export class CartComponent implements OnInit {
 
   fetchCartByUser(): void {
     this.isLoading = true;
-    const subscription = this.cartService
-      .getCartDetail()
-      .pipe(map((result) => result.cartItems))
-      .subscribe({
-        next: (cart) => {
-          this.cartItems = cart;
-          this.isLoading = false;
-        },
-        error: (error) => {
-          console.log(error);
-          this.errorMessage = 'Failed to load cart';
-          this.isLoading = false;
-        },
-      });
+    const subscription = this.cartService.getCartDetail().subscribe({
+      next: (result) => {
+        this.cartId = result.id;
+        this.cartItems = result.cartItems;
+        this.isLoading = false;
+      },
+      error: (error) => {
+        console.log(error);
+        this.errorMessage = 'Failed to load cart';
+        this.isLoading = false;
+      },
+    });
     this.destroyRef.onDestroy(() => {
       subscription.unsubscribe();
     });
@@ -51,9 +50,19 @@ export class CartComponent implements OnInit {
     );
   }
 
-  handleCheckout(cartId: number) {
-    this.orderService.checkout(cartId);
+  handleCheckout() {
+    this.isLoading = true;
+    const subscription = this.orderService.checkout(this.cartId).subscribe({
+      next: (res) => {
+        this.isLoading = false;
+      },
+      error: (error) => {
+        this.errorMessage = 'Failed to load cart';
+        this.isLoading = false;
+      },
+    });
+    this.destroyRef.onDestroy(() => {
+      subscription.unsubscribe();
+    });
   }
-
-  quantity: number = 1;
 }

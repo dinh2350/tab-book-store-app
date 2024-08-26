@@ -10,6 +10,6 @@ export class OrderService {
   constructor(private httpClientService: HttpClientService) {}
 
   checkout(cartId: number): Observable<ICart> {
-    return this.httpClientService.post<ICart>('/orders/checkout', { cartId });
+    return this.httpClientService.post<ICart>('orders/checkout', { cartId });
   }
 }

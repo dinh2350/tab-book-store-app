@@ -1,9 +1,5 @@
 <mat-card class="cart__product-item">
   <mat-card-content class="cart__product-item-content">
-    <mat-checkbox
-      color="primary"
-      class="cart__product-item-checked"
-    ></mat-checkbox>
     <img
       class="cart__product-item-img"
       mat-card-image
@@ -11,9 +7,9 @@
       alt="Photo of a Shiba Inu"
     />
     <div class="cart__product-item-info">
-      <p class="mat-body-1">
+      <h2>
         {{ cartItem.book.title }}
-      </p>
+      </h2>
       <p class="cart__product-item-info-price">{{ cartItem.book.price }}$</p>
     </div>
 
@@ -24,7 +20,7 @@
       ></app-quantity>
     </div>
     <div class="cart__product-item-price">
-      <span>{{ cartItem.quantity * cartItem.book.price }} $</span>
+      <span>{{ cartItem.quantity * cartItem.book.price | currency }}</span>
     </div>
     <div class="cart__product-item-action">
       <button

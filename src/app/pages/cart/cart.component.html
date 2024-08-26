@@ -7,8 +7,7 @@
       <div class="cart__header">
         <mat-card>
           <mat-card-content>
-            <mat-checkbox color="primary"></mat-checkbox>
-            <span class="cart__header-text"> Select All Product </span>
+            <span class="cart__header-text"> Product list </span>
           </mat-card-content>
         </mat-card>
       </div>
@@ -31,10 +30,14 @@
         </mat-card-title>
         <mat-card-content class="cart__total-amount__body">
           <div class="cart__total-amount-price">
-            <span>{{ totalAmount() }}$</span>
+            <span>{{ totalAmount() | currency }}</span>
           </div>
           <div>
-            <button mat-raised-button class="cart__total-amount__btn-pay">
+            <button
+              mat-raised-button
+              class="cart__total-amount__btn-pay"
+              (click)="handleCheckout()"
+            >
               Payment
             </button>
           </div>
